@@ -5,17 +5,21 @@
 1. Create a new web app client or have a web app client whose credentials the example will run under
 
 2. Make sure the cors, callback, and logout settings are populated for the web app client
-> Allowed Callback URLs -> http://localhost:3000/callback
-> Allowed Logout URLs -> http://localhost:3000/logout
-> Allowed Origins (CORS) -> localhost:3000
+```
+Allowed Callback URLs -> http://localhost:3000/callback
+Allowed Logout URLs -> http://localhost:3000/logout
+Allowed Origins (CORS) -> localhost:3000
+```
 
 3. Create new Management API v2
 
 4. Authorize the web app client to use this API
 
-5. Give the client the scopes: 
-> rules:read
-> clients:read
+5. Give the client the scopes:
+```
+rules:read
+clients:read
+```
 
 6. Create a rule for the web app client to implement the whitelist using the following code:
 
