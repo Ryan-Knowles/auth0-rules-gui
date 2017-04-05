@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  nav.navbar.navbar-toggleable-md.fixed-top.navbar-inverse.bg-inverse
+    h3.navbar-brand #{title}
+    ul.navbar-nav.mr-auto.ml-auto
+      li.nav-item
+        img(src=user.picture)
+      li.nav-item
+        h4.navbar-text #{user.nickname}
+    ul.navbar-nav
+      li.nav-item
+        a.nav-link(href='/logout') Logout
+      
+  .container
+    h3.display-4 Clients
+    #accordion
+      each client, index in clients
+        if client.name != 'All Applications'
+          .card
+            .card-header
+              .row
+                a.col-11.collapsed(data-toggle='collapse' data-parent='#accordion' href='#client'+index)
+                  h4 #{client.name}
+                .col-1
+                  a.btn.btn-default(href=client.client_id?`https://manage.auth0.com/#/clients/${client.client_id}/settings`:"https://manage.auth0.com/#/clients" target="_blank") Edit
+            .collapse(id='client'+index)
+              .card-block
+                h4 Rules:
+                each rule in rules
+                  //- Check for empty clients list or clients list matching
+                  //- the current client's name or id
+                  - var ruleApplies = (rule.clients.length==0 || rule.clients.some( (el) => (el==client.name||el==client.client_id) ))
+                  if ruleApplies
+                    .row
+                      .col-11
+                        .row
+                          .col-1
+                            div(class=rule.enabled?'rule-enabled':'rule-disabled')
+                          .col-11
+                            h5 #{rule.name}
+                      .col-1
+                        a.btn.btn-default(href=`https://manage.auth0.com/#/rules/${rule.id}` target="_blank") Edit  

@@ -1,0 +1,37 @@
+{
+  "name": "auth0-rules-gui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/www",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.16.1",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.6.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.1",
+    "express-session": "^1.11.3",
+    "lodash": "^4.17.4",
+    "morgan": "^1.8.1",
+    "passport": "^0.3.0",
+    "passport-auth0": "^0.6.0",
+    "pug": "~2.0.0-beta11",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0",
+    "serve-favicon": "^2.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ryan-Knowles/auth0-rules-gui.git"
+  },
+  "author": "Ryan Knowles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ryan-Knowles/auth0-rules-gui/issues"
+  },
+  "homepage": "https://github.com/Ryan-Knowles/auth0-rules-gui#readme"
+}
