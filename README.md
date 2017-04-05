@@ -1,19 +1,20 @@
 # auth0-rules-gui
 
+
 ## Auth0 Account configuration
 
 1. Create a new web app client or have a web app client whose credentials the example will run under
 
 2. Make sure the cors, callback, and logout settings are populated for the web app client
 ```
-Allowed Callback URLs -> http://localhost:3000/callback
-Allowed Logout URLs -> http://localhost:3000/logout
-Allowed Origins (CORS) -> localhost:3000
+Allowed Callback URLs: http://localhost:3000/callback
+Allowed Logout URLs: http://localhost:3000/logout
+Allowed Origins (CORS): localhost:3000
 ```
 
-3. Create new Management API v2
+3. Ensure the Auth0 Management API v2 is enabled in the API tab
 
-4. Authorize the web app client to use this API
+4. Authorize the web app client to use this API by going to API -> Auth0 Management API -> Non Interactive Clients
 
 5. Give the client the scopes:
 ```
@@ -41,6 +42,7 @@ function (user, context, callback) {
 }
 ```
 
+
 ## Running the Example
 
 Install the dependencies.
@@ -63,6 +65,16 @@ npm start
 ```
 
 The app will be served at `localhost:3000`.
+
+
+## Notes
+
+1. The route '/' in index.js contains the example code for getting a management api v2 access token and requesting the client and rules data
+
+2. The view index.pug demonstrates using the retrieved data to create a basic GUI for organizing the client and rule connections
+
+3. New users can be added to the whitelist through their emails in the rule created above.
+
 
 ## License
 
